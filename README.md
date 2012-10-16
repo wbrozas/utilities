@@ -3,7 +3,7 @@ utilities
 
 This repo is for useful code and examples that I made to possibly use later.
 
-# Compiling and Running Instructions
+**Compiling and Running Instructions**
 Parallel Stuff
 
 	ghc -O2 --make code.hs -threaded -rtsopts
