@@ -18,4 +18,4 @@ factp n = a `par` b `par` c `par` d `par` e `par` f `par` g `par` h `pseq` (a * 
 
 main = do
 	args <- getArgs
-	putStrLn $ show $ factp $ (read (head args) :: Integer)
+	print $ factp (read (head args) :: Integer)
