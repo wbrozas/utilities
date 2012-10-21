@@ -1,5 +1,6 @@
-import Data.List
 -- This is for random functions on lists that I cannot find or I just felt like implementing (Work in progress, hope to add one a week)
+
+import Data.List
 
 merge :: (Ord a) => [a] -> [a] -> [a]
 merge xs [] = xs
