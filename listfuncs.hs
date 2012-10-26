@@ -18,7 +18,11 @@ select k xs
     | otherwise        = let mm = getMedianOfMedians xs 
                             in let ys = partition (< mm) xs 
                                 in let size = length $ fst ys
-                                    in if size == k then mm else if size < k then select (k - size - 1) (delete mm $ snd ys) else select k (fst ys)
+                                    in if size == k 
+                                        then mm 
+                                        else if size < k 
+                                                then select (k - size - 1) (delete mm $ snd ys) 
+                                                else select k (fst ys)
 
 --Helper for select, splits into groups of 5 and returns the medians of those groups
 getMedianOfMedians :: (Ord a) => [a] -> a
