@@ -16,13 +16,13 @@ select :: (Ord a) => Int -> [a] -> a
 select k xs
     | length xs <= 5   = sort xs !! k
     | otherwise        = let mm = getMedianOfMedians xs 
-                            in let ys = partition (< mm) xs 
-                                in let size = length $ fst ys
+                            in let (ltxs, gtexs) = partition (< mm) xs
+                                in let size = length ltxs
                                     in if size == k 
                                         then mm 
                                         else if size < k 
-                                                then select (k - size - 1) (delete mm $ snd ys) 
-                                                else select k (fst ys)
+                                                then select (k - size - 1) (delete mm gtexs) 
+                                                else select k ltxs
 
 --Helper for select, splits into groups of 5 and returns the medians of those groups
 getMedianOfMedians :: (Ord a) => [a] -> a
